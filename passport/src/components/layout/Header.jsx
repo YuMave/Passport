@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../../redux/actions/authActions';
+import { logout } from '../../redux/actions/authAction';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { thunk } from 'redux-thunk';
+import rootReducer from '../../redux/reducers/authReducers';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,6 +14,11 @@ const Header = () => {
     const { isAuthenticated, user } = useSelector(state => state.auth);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const store = createStore(
+        rootReducer,
+        composeWithDevTools(applyMiddleware(thunk))
+    );
 
     const handleLogout = () => {
         dispatch(logout());

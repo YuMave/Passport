@@ -1,8 +1,13 @@
 {
   "dependencies": {
     "lucide-react": "^0.477.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.2.0",
-    "react-toastify": "^11.0.5"
+    "react-toastify": "^11.0.5",
+    "redux": "^5.0.1",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^3.1.0"
   }
 }
